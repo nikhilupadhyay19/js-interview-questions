@@ -90,3 +90,40 @@ console.log(flattenedBooksArr);
 
 const uniqueBooksName = helperFns.removeDuplicateElem(flattenedBooksArr);
 console.log(uniqueBooksName);
+
+const p1 = () => {
+  return new Promise((resolve, reject) => {
+    resolve(10);
+  });
+};
+
+const p2 = () => {
+  return new Promise((resolve, reject) => {
+    resolve(20);
+  });
+};
+
+const p3 = () => {
+  return new Promise((resolve, reject) => {
+    resolve(30);
+  });
+};
+
+const p4 = () => {
+  return new Promise((resolve, reject) => {
+    resolve(40);
+  });
+};
+
+const p5 = () => {
+  return new Promise((resolve, reject) => {
+    reject("Promise Rejected");
+  });
+};
+
+const getResult = async () => {
+  const res = await Promise.all([p1(), p2(), p3(), p4(), p5()]);
+  console.log(res);
+};
+
+getResult();
