@@ -11,13 +11,16 @@ const products = [
   { Name: "Coat", Price: 80, addedToCart: false }
 ];
 
-const getArrayByKeyName = (arr, key) => {
-  if (!Array.isArray(arr)) return;
-  return arr.reduce((acc, el) => {
-    acc.push(el[key]);
-    return acc;
-  }, []);
-};
+const mdArr = [1, [2, [3, [4]], 5]];
 
-const productsPrice = getArrayByKeyName(products, "Price");
+const productsPrice = helperFns.getArrayByKeyName(products, "Price");
 console.log(productsPrice);
+
+const calculatedSum = helperFns.calSum(productsPrice);
+console.log(calculatedSum);
+
+const calculatedSumByKeyName = helperFns.calcSumByKeyName(products, "Price");
+console.log(calculatedSumByKeyName);
+
+const flattenedArr = helperFns.customFlat(mdArr, Infinity);
+console.log(flattenedArr);
