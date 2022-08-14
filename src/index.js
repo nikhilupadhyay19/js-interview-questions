@@ -8,7 +8,29 @@ const products = [
   { Name: "Black Jeans", Price: 35, addedToCart: false },
   { Name: "Leather Jacket", Price: 50, addedToCart: false },
   { Name: "Sweater", Price: 55, addedToCart: false },
-  { Name: "Coat", Price: 80, addedToCart: false }
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "White Shirt", Price: 20, addedToCart: false },
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "White Shirt", Price: 20, addedToCart: false },
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "White Shirt", Price: 20, addedToCart: false },
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "White Shirt", Price: 20, addedToCart: false },
+  { Name: "Black Jeans", Price: 35, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Sweater", Price: 55, addedToCart: false },
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "White Shirt", Price: 20, addedToCart: false },
+  { Name: "Black Jeans", Price: 35, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Sweater", Price: 55, addedToCart: false },
+  { Name: "Coat", Price: 80, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false },
+  { Name: "Leather Jacket", Price: 50, addedToCart: false }
 ];
 
 const mdArr = [1, [2, [3, [4]], 5]];
@@ -24,3 +46,12 @@ console.log(calculatedSumByKeyName);
 
 const flattenedArr = helperFns.customFlat(mdArr, Infinity);
 console.log(flattenedArr);
+
+const productsName = helperFns.getArrayByKeyName(products, "Name");
+console.log(productsName);
+
+const countRepeated = helperFns.countInstances(productsName);
+console.log(countRepeated);
+
+const groupedByPrice = helperFns.groupByKeyName(products, "Price");
+console.log(groupedByPrice);

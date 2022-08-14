@@ -33,11 +33,40 @@ const helperFn = () => {
       : arr.slice();
   };
 
+  const countInstances = (arr) => {
+    let count = 1;
+    if (!Array.isArray(arr)) return;
+    return arr.reduce((acc, el) => {
+      if (!acc[el]) {
+        acc[el] = count;
+      } else {
+        acc[el]++;
+      }
+      return acc;
+    }, {});
+  };
+
+  const groupByKeyName = (arr, objkey) => {
+    if (!Array.isArray(arr)) return;
+
+    return arr.reduce((acc, el) => {
+      const key = el[objkey];
+      if (!acc[key]) {
+        acc[key] = [];
+      }
+      acc[key].push(el);
+
+      return acc;
+    }, {});
+  };
+
   const services = Object.freeze({
     getArrayByKeyName,
     calSum,
     calcSumByKeyName,
-    customFlat
+    customFlat,
+    countInstances,
+    groupByKeyName
   });
 
   return services;
