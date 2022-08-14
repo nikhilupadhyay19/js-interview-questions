@@ -60,13 +60,24 @@ const helperFn = () => {
     }, {});
   };
 
+  const removeDuplicateElem = (arr) => {
+    if (!Array.isArray(arr)) return;
+    return arr.reduce((acc, el) => {
+      if (acc.indexOf(el) === -1) {
+        acc.push(el);
+      }
+      return acc;
+    }, []);
+  };
+
   const services = Object.freeze({
     getArrayByKeyName,
     calSum,
     calcSumByKeyName,
     customFlat,
     countInstances,
-    groupByKeyName
+    groupByKeyName,
+    removeDuplicateElem
   });
 
   return services;

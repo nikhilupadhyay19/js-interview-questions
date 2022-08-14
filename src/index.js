@@ -88,9 +88,5 @@ const booksName = helperFns.getArrayByKeyName(friends, "books");
 const flattenedBooksArr = helperFns.customFlat(booksName, Infinity);
 console.log(flattenedBooksArr);
 
-const removeDuplicateElem = (arr) => {
-  return arr.reduce((acc, el) => {
-    return acc;
-  }, []);
-};
-console.log(removeDuplicateElem(flattenedBooksArr));
+const uniqueBooksName = helperFns.removeDuplicateElem(flattenedBooksArr);
+console.log(uniqueBooksName);
