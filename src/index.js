@@ -35,6 +35,34 @@ const products = [
 
 const mdArr = [1, [2, [3, [4]], 5]];
 
+const friends = [
+  {
+    name: "Anna",
+    books: ["Bible", "Harry Potter"],
+    age: 21
+  },
+  {
+    name: "Bob",
+    books: [
+      "War and peace",
+      ["The Lord of the Rings", ["Bible", "Harry Potter"], "The Shining"],
+      "Romeo and Juliet",
+      [
+        "Bible",
+        ["Bible", "Harry Potter"],
+        "Harry Potter",
+        ["The Lord of the Rings", "The Shining"]
+      ]
+    ],
+    age: 26
+  },
+  {
+    name: "Alice",
+    books: ["The Lord of the Rings", "The Shining"],
+    age: 18
+  }
+];
+
 const productsPrice = helperFns.getArrayByKeyName(products, "Price");
 console.log(productsPrice);
 
@@ -55,3 +83,14 @@ console.log(countRepeated);
 
 const groupedByPrice = helperFns.groupByKeyName(products, "Price");
 console.log(groupedByPrice);
+
+const booksName = helperFns.getArrayByKeyName(friends, "books");
+const flattenedBooksArr = helperFns.customFlat(booksName, Infinity);
+console.log(flattenedBooksArr);
+
+const removeDuplicateElem = (arr) => {
+  return arr.reduce((acc, el) => {
+    return acc;
+  }, []);
+};
+console.log(removeDuplicateElem(flattenedBooksArr));
