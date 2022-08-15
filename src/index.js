@@ -63,34 +63,6 @@ const friends = [
   }
 ];
 
-const productsPrice = helperFns.getArrayByKeyName(products, "Price");
-console.log(productsPrice);
-
-const calculatedSum = helperFns.calSum(productsPrice);
-console.log(calculatedSum);
-
-const calculatedSumByKeyName = helperFns.calcSumByKeyName(products, "Price");
-console.log(calculatedSumByKeyName);
-
-const flattenedArr = helperFns.customFlat(mdArr, Infinity);
-console.log(flattenedArr);
-
-const productsName = helperFns.getArrayByKeyName(products, "Name");
-console.log(productsName);
-
-const countRepeated = helperFns.countInstances(productsName);
-console.log(countRepeated);
-
-const groupedByPrice = helperFns.groupByKeyName(products, "Price");
-console.log(groupedByPrice);
-
-const booksName = helperFns.getArrayByKeyName(friends, "books");
-const flattenedBooksArr = helperFns.customFlat(booksName, Infinity);
-console.log(flattenedBooksArr);
-
-const uniqueBooksName = helperFns.removeDuplicateElem(flattenedBooksArr);
-console.log(uniqueBooksName);
-
 const p1 = () => {
   return new Promise((resolve, reject) => {
     resolve(10);
@@ -121,9 +93,42 @@ const p5 = () => {
   });
 };
 
-const getResult = async () => {
-  const res = await Promise.all([p1(), p2(), p3(), p4(), p5()]);
-  console.log(res);
-};
+const p6 = 42;
 
+const productsPrice = helperFns.getArrayByKeyName(products, "Price");
+console.log(productsPrice);
+
+const calculatedSum = helperFns.calSum(productsPrice);
+console.log(calculatedSum);
+
+const calculatedSumByKeyName = helperFns.calcSumByKeyName(products, "Price");
+console.log(calculatedSumByKeyName);
+
+const flattenedArr = helperFns.customFlat(mdArr, Infinity);
+console.log(flattenedArr);
+
+const productsName = helperFns.getArrayByKeyName(products, "Name");
+console.log(productsName);
+
+const countRepeated = helperFns.countInstances(productsName);
+console.log(countRepeated);
+
+const groupedByPrice = helperFns.groupByKeyName(products, "Price");
+console.log(groupedByPrice);
+
+const booksName = helperFns.getArrayByKeyName(friends, "books");
+const flattenedBooksArr = helperFns.customFlat(booksName, Infinity);
+console.log(flattenedBooksArr);
+
+const uniqueBooksName = helperFns.removeDuplicateElem(flattenedBooksArr);
+console.log(uniqueBooksName);
+
+const getResult = async () => {
+  const res = await Promise.all([p1(), p2(), p3(), p4()]);
+  console.log(res, "getResult");
+};
 getResult();
+
+helperFns.customPromiseAll([p1(), p2(), p3(), p4(), p6, p5()]).then((res) => {
+  console.log(res, "customPromiseAll");
+});

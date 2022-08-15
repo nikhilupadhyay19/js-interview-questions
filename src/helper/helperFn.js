@@ -70,6 +70,26 @@ const helperFn = () => {
     }, []);
   };
 
+  const customPromiseAll = (promises) => {
+    const result = [];
+    let completed = 0;
+    return new Promise((resolve, reject) => {
+      promises.forEach((promise, i) => {
+        Promise.resolve(promise)
+          .then((res) => {
+            completed++;
+            result[i] = res;
+            if (completed === promises.length) {
+              resolve(result);
+            }
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
+    });
+  };
+
   const services = Object.freeze({
     getArrayByKeyName,
     calSum,
@@ -77,7 +97,8 @@ const helperFn = () => {
     customFlat,
     countInstances,
     groupByKeyName,
-    removeDuplicateElem
+    removeDuplicateElem,
+    customPromiseAll
   });
 
   return services;
