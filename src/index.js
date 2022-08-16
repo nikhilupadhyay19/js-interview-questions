@@ -129,6 +129,43 @@ const getResult = async () => {
 };
 getResult();
 
-helperFns.customPromiseAll([p1(), p2(), p3(), p4(), p6, p5()]).then((res) => {
+helperFns.customPromiseAll([p1(), p2(), p3(), p4(), p6]).then((res) => {
   console.log(res, "customPromiseAll");
 });
+
+var array = [
+  "Manish",
+  "Chandan",
+  "Piyush",
+  "Sunil",
+  "Manish",
+  "Chandan",
+  "Piyush",
+  "Sunil",
+  "Manish",
+  "Chandan",
+  "Piyush",
+  "Sunil",
+  "Chandan",
+  "Chandan",
+  "Chandan",
+  "Sunil",
+  "Sunil",
+  "Sunil",
+  "Sunil"
+];
+const countInstances = (arr) => {
+  let count = 1;
+  if (!Array.isArray(arr)) return;
+  return arr.reduce((acc, el) => {
+    if (!acc[el]) {
+      acc[el] = count;
+    } else {
+      acc[el]++;
+    }
+    return acc;
+  }, {});
+};
+
+const numberOfInstances = countInstances(array);
+console.log(numberOfInstances);
